@@ -1,6 +1,8 @@
 = monster_mash
 
-Description goes here.
+* Typhoeus is an ancient monster.
+* A monster mash is a dance party.
+* This library inspired by John Nunemaker's awesomely useful HTTParty.
 
 == Note on Patches/Pull Requests
  
