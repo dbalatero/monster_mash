@@ -104,7 +104,7 @@ module MonsterMash
       else
         raise MonsterMash::InvalidRequest,
           "Invalid request definition for #{name}:\n" <<
-          request.errors.join('\n\n')
+          request.errors.collect { |e| " * #{e}" }.join("\n")
       end
     end
   end
