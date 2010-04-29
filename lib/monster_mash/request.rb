@@ -1,8 +1,9 @@
-require 'active_support'
-
 module MonsterMash
+  class InvalidRequest < StandardError; end
+
   class Request
     attr_accessor :options
+    attr_accessor :errors
 
     def initialize(http_method, *args, &block)
       @handler = nil
@@ -16,8 +17,26 @@ module MonsterMash
       instance_exec(*args, &block) if block_given?
     end
 
+    def build_request
+      Typhoeus::Request.new(self.uri, self.options)
+    end
+
+    def run_serial_request
+      Typhoeus::Request.run(self.uri, self.options)
+    end
+
     def valid?
-      handler and uri
+      self.errors = []
+
+      if !handler
+        self.errors << 'You need to set a handler block.'
+      end
+
+      if !uri
+        self.errors << 'You need to set a uri.'
+      end
+
+      self.errors.empty?
     end
 
     def uri(value = nil)

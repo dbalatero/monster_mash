@@ -46,11 +46,13 @@ describe MonsterMash::Request do
     it "should not be valid if there is missing handler" do
       @request.uri "http://google.com"
       @request.should_not be_valid
+      @request.errors.should have(1).thing
     end
 
     it "should not be valid if there is a missing uri" do
       @request.handler { |response| puts response.body }
       @request.should_not be_valid
+      @request.errors.should have(1).thing
     end
   end
 
