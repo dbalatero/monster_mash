@@ -1,4 +1,8 @@
 module MonsterMash
+  class HTTPError < StandardError
+    attr_accessor :response
+  end
+
   class Base
     include ClassLevelInheritableAttributes
     inheritable_attributes :defaults
@@ -60,8 +64,13 @@ module MonsterMash
       end
     end
 
-    def inherited(subclass)
-
+    def self.check_response_and_raise!(response)
+      code = response.code.to_i
+      if code < 200 or code >= 400
+        error = MonsterMash::HTTPError.new("Got bad HTTP response! code: #{code}")
+        error.response = response
+        raise error
+      end
     end
 
     private

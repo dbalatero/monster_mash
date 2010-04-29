@@ -67,6 +67,43 @@ describe MonsterMash::Base do
     end
   end
 
+  describe "#check_response_and_raise!" do
+    before(:each) do
+      @response = mock('response')
+    end
+
+    it "should raise if a response has a code in the wrong range" do
+      bad_codes = [0, 404, 500, 403, 410, 400]
+      bad_codes.each do |code|
+        @response.stub!(:code).and_return(code)
+        lambda {
+          MonsterMash::Base.check_response_and_raise!(@response)
+        }.should raise_error(MonsterMash::HTTPError)
+      end
+    end
+
+    it "should not raise if a response has good codes" do
+      good_codes = [200, 204, 301, 302]
+      good_codes.each do |code|
+        @response.stub!(:code).and_return(code)
+        lambda {
+          MonsterMash::Base.check_response_and_raise!(@response)
+        }.should_not raise_error(MonsterMash::HTTPError)
+      end
+    end
+
+    it "should propagate the response object with the error" do
+      @response.stub!(:code).and_return(400)
+      error = nil
+      begin
+        MonsterMash::Base.check_response_and_raise!(@response)
+      rescue => e
+        error = e
+      end
+      error.response.should == @response
+    end
+  end
+
   describe "#delete" do
     it "should proxy to build_method" do
       MockApi.should_receive(:build_method).
