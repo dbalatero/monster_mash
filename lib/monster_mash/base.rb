@@ -1,5 +1,8 @@
 module MonsterMash
   class Base
+    include ClassLevelInheritableAttributes
+    inheritable_attributes :defaults
+
     attr_accessor :hydra
     attr_accessor :options
 
@@ -55,6 +58,10 @@ module MonsterMash
           end
         end
       end
+    end
+
+    def inherited(subclass)
+
     end
 
     private

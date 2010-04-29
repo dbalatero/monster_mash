@@ -4,6 +4,31 @@ class MockApi < MonsterMash::Base
 end
 
 describe MonsterMash::Base do
+  describe "inheriting defaults from superclasses" do
+    class A < MonsterMash::Base
+      defaults do
+        cache_timeout 9999
+      end
+    end
+
+    class B < A
+    end
+
+    class C < A
+      defaults do
+        cache_timeout 100
+      end
+    end
+
+    it "should propagate defaults to B" do
+      B.defaults.should == A.defaults
+    end
+
+    it "should allow override of defaults by C" do
+      C.defaults.should_not == A.defaults
+    end
+  end
+
   describe "#self.defaults" do
     it "should default to nil" do
       MockApi.defaults.should == nil
