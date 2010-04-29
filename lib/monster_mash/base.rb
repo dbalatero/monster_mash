@@ -1,5 +1,3 @@
-require 'active_support'
-
 module MonsterMash
   class Base
     attr_accessor :hydra

@@ -84,8 +84,8 @@ describe MonsterMash::Base do
       end
     end
 
-    typhoeus_spec_cache("spec/cache/google") do |hydra|
-      describe "a valid method" do
+    describe "a valid method" do
+      typhoeus_spec_cache("spec/cache/google") do |hydra|
         before(:all) do
           MockApi.build_method(:get, :google_json) do |search|
             uri 'http://ajax.googleapis.com/ajax/services/search/web'
@@ -94,6 +94,7 @@ describe MonsterMash::Base do
               'q' => search,
               'rsz' => 'large'
             })
+            cache_timeout 999999
             handler do |response|
               json = JSON.parse(response.body)
               json['responseData']['results'].map do |result|
