@@ -109,6 +109,42 @@ describe MonsterMash::Base do
       end
     end
 
+    describe "error propagation" do
+      typhoeus_spec_cache("spec/cache/errors") do |hydra|
+        before(:all) do
+          class CustomMockError < StandardError; end
+
+          MockApi.build_method(:get, :google_json2) do |search|
+            uri 'http://ajax.googleapis.com/ajax/services/search/web'
+            params({
+              'v' => '1.0',
+              'q' => search,
+              'rsz' => 'large'
+            })
+            cache_timeout 999999
+            handler do |response|
+              raise CustomMockError, "my error"
+            end
+          end
+        end
+
+        it "should raise an error in a serial request" do
+          lambda {
+            MockApi.google_json2('david balatero')
+          }.should raise_error(CustomMockError)
+        end
+
+        it "should propagate the error to the block in parallel request" do
+          api = MockApi.new(hydra)
+          propagated_error = nil
+          api.google_json2('david balatero') do |urls, error|
+            propagated_error = error
+          end
+          propagated_error.should be_an_instance_of(CustomMockError)
+        end
+      end
+    end
+
     describe "a valid method" do
       typhoeus_spec_cache("spec/cache/google") do |hydra|
         before(:all) do
@@ -137,8 +173,10 @@ describe MonsterMash::Base do
         it "should do a query correctly" do
           saved_urls = nil
           api = MockApi.new(hydra)
-          api.google_json('balatero') do |urls|
-            saved_urls = urls
+          api.google_json('balatero') do |urls, error|
+            if !error
+              saved_urls = urls
+            end
           end
           hydra.run
 

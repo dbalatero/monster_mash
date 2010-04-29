@@ -82,8 +82,13 @@ module MonsterMash
           # parallel hydra request.
           typhoeus_request = request.build_request
           typhoeus_request.on_complete do |response|
-            result = request.handler.call(response)
-            block.call(result)
+            result, error = nil, nil
+            begin
+              result = request.handler.call(response)
+            rescue => e
+              error = e
+            end
+            block.call(result, error)
           end
           hydra.queue(typhoeus_request)
         end
