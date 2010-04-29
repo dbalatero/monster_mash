@@ -24,7 +24,15 @@ module MonsterMash
       build_method(:delete, name, &setup_block)
     end
 
-    def self.build_method(http_method, name, &setup_block)
+    def self.defaults(&block)
+      if block_given?
+        @defaults = block
+      else
+        @defaults
+      end
+    end
+
+    def self.build_method(http_method, name, &setup_block) # :nodoc:
       if respond_to?(name)
         raise ArgumentError, "The method name \"#{name}\" is in use!"
       else
@@ -49,6 +57,7 @@ module MonsterMash
       end
     end
 
+    private
     def self.execute(http_method, hydra, block, *args, &setup_block)
       # Create the request with defaults.
       request = MonsterMash::Request.new(http_method, &defaults)
@@ -75,14 +84,6 @@ module MonsterMash
         raise MonsterMash::InvalidRequest,
           "Invalid request definition for #{name}:\n" <<
           request.errors.join('\n\n')
-      end
-    end
-
-    def self.defaults(&block)
-      if block_given?
-        @defaults = block
-      else
-        @defaults
       end
     end
   end
