@@ -68,7 +68,11 @@ module MonsterMash
     def assign_or_return_option!(name, value = nil)
       symbolized_name = name.to_sym
       if value
-        self.options[symbolized_name] = value
+        if self.options[symbolized_name].respond_to?(:merge) and value.respond_to?(:merge)
+          self.options[symbolized_name].merge!(value)
+        else
+          self.options[symbolized_name] = value
+        end
       else
         self.options[symbolized_name]
       end

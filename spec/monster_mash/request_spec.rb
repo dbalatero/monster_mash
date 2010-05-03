@@ -20,6 +20,30 @@ describe MonsterMash::Request do
     end
   end
 
+  describe "adding to default params" do
+    before(:each) do
+      @request = MonsterMash::Request.new(:get) do
+        params :api_key => 'fdsa',
+               :format => 'json'
+      end
+    end
+
+    it "should merge in the params hash" do
+      @request.execute_dsl do
+        params :format => 'xml',
+               :a => 'ok',
+               :b => 'ok2'
+      end
+
+      @request.options[:params].should == {
+        :api_key => 'fdsa',
+        :format => 'xml',
+        :a => 'ok',
+        :b => 'ok2'
+      }
+    end
+  end
+
   describe "#handler" do
     before(:each) do
       @request = MonsterMash::Request.new(:get)
