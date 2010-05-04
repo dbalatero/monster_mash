@@ -28,6 +28,7 @@ Gem::Specification.new do |s|
      "lib/monster_mash/inheritable_attributes.rb",
      "lib/monster_mash/instance_exec.rb",
      "lib/monster_mash/request.rb",
+     "monster_mash.gemspec",
      "spec/cache/errors/578ef7e62373286feb3e35a6042555a6c0dcde08.cache",
      "spec/cache/google/cfd676f5f3b7aefc1b4a9038eb4a4de00d2608c8.cache",
      "spec/monster_mash/base_spec.rb",
