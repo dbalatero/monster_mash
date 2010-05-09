@@ -125,6 +125,14 @@ Error Handling
 * All serial (blocking) methods will simply raise an error if anything wrong happens. You just need to `rescue` said error.
 * When interacting with Hydra requests, the block you pass to it will receive an error to it if any error was caught during the `handler`'s run. You need to check for the error in your block and handle it there.
 
+Known Issues to Solve
+---------------------
+* Given this DSL, how does one document the API methods they implement using it?
+
+Example Projects using monster_mash
+-----------------------------------
+* http://github.com/dbalatero/alchemy_api
+
 Note on Patches/Pull Requests
 -----------------------------
  
