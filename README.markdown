@@ -128,6 +128,7 @@ Error Handling
 Known Issues to Solve
 ---------------------
 * Given this DSL, how does one document the API methods they implement using it?
+* default blocks cannot inherit more than one level deep
 
 Example Projects using monster_mash
 -----------------------------------
