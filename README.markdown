@@ -129,6 +129,7 @@ Known Issues to Solve
 ---------------------
 * Given this DSL, how does one document the API methods they implement using it?
 * default blocks cannot inherit more than one level deep
+** Maybe default to Accept-Encoding: gzip? Look into that support. 
 
 Example Projects using monster_mash
 -----------------------------------
