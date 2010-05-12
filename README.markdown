@@ -42,9 +42,9 @@ Example: Google JSON search
       # a single +query+ parameter.
       get(:search) do |query|
         uri "http://ajax.googleapis.com/ajax/services/search/web"
-        params :v => VERSION,
-               :q => query,
-               :rsz => 'large'
+        params 'v' => VERSION,
+               'q' => query,
+               'rsz' => 'large'
         handler do |response|
           json = JSON.parse(response.body)
 
@@ -102,7 +102,7 @@ As well, if you set `params` or `headers` in the `defaults` block, any `params` 
 
     class GoogleJson < MonsterMash::Base
       defaults do
-        params :api_key => 'fdas'
+        params 'api_key' => 'fdas'
       end
 
       # The full params hash will look like:
@@ -110,8 +110,8 @@ As well, if you set `params` or `headers` in the `defaults` block, any `params` 
       #   :v => '1.0',
       #   :api_key => 'fdas'
       get(:search) do |query|
-        params :q => query,
-               :v => '1.0'
+        params 'q' => query,
+               'v' => '1.0'
         uri "..."
         handler do |response|
           # ...
