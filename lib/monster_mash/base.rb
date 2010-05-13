@@ -4,9 +4,9 @@ module MonsterMash
   end
 
   class Base
-    include ClassLevelInheritableAttributes
-    inheritable_attributes :defaults
+    @defaults = []
 
+    attr_accessor :defaults
     attr_accessor :hydra
     attr_accessor :options
 
@@ -33,7 +33,7 @@ module MonsterMash
 
     def self.defaults(&block)
       if block_given?
-        @defaults = block
+        @defaults << block
       else
         @defaults
       end
@@ -73,10 +73,15 @@ module MonsterMash
       end
     end
 
+    def self.inherited(subclass)
+      subclass.instance_variable_set("@defaults", defaults.dup)
+    end
+
     private
     def self.execute(http_method, hydra, block, *args, &setup_block)
       # Create the request with defaults.
-      request = MonsterMash::Request.new(http_method, &defaults)
+      request = MonsterMash::Request.new(http_method)
+      request.apply_defaults(defaults)
 
       # Add in user-set values.
       request.execute_dsl(*args, &setup_block)

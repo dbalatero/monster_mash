@@ -8,6 +8,7 @@ describe MonsterMash::Base do
     class A < MonsterMash::Base
       defaults do
         cache_timeout 9999
+        timeout 500
       end
     end
 
@@ -22,24 +23,26 @@ describe MonsterMash::Base do
 
     it "should propagate defaults to B" do
       B.defaults.should == A.defaults
+      B.defaults.should have(1).thing
     end
 
     it "should allow override of defaults by C" do
       C.defaults.should_not == A.defaults
+      C.defaults.should have(2).things
     end
   end
 
   describe "#self.defaults" do
-    it "should default to nil" do
-      MockApi.defaults.should == nil
+    it "should default to empty array" do
+      MockApi.defaults.should == []
     end
 
     it "should save a defaults proc in the class" do
       defaults_block = lambda { nil }
       MockApi.defaults(&defaults_block)
 
-      MockApi.defaults.should == defaults_block
-      MonsterMash::Base.defaults.should == nil
+      MockApi.defaults.should == [defaults_block]
+      MonsterMash::Base.defaults.should be_empty
     end
   end
 

@@ -13,6 +13,10 @@ module MonsterMash
       execute_dsl(*args, &block)
     end
 
+    def apply_defaults(default_blocks)
+      default_blocks.each { |block| execute_dsl(&block) }
+    end
+
     def execute_dsl(*args, &block)
       instance_exec(*args, &block) if block_given?
     end
