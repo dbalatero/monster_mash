@@ -5,19 +5,21 @@ end
 
 describe MonsterMash::Base do
   describe "inheriting defaults from superclasses" do
-    class A < MonsterMash::Base
-      defaults do
-        cache_timeout 9999
-        timeout 500
+    before(:all) do
+      class A < MonsterMash::Base
+        defaults do
+          cache_timeout 9999
+          timeout 500
+        end
       end
-    end
 
-    class B < A
-    end
+      class B < A
+      end
 
-    class C < A
-      defaults do
-        cache_timeout 100
+      class C < A
+        defaults do
+          cache_timeout 100
+        end
       end
     end
 

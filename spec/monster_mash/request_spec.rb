@@ -46,14 +46,14 @@ describe MonsterMash::Request do
 
   describe "#apply_defaults" do
     before(:all) do
-      class A < MonsterMash::Base
+      class ApplyDefaultsA < MonsterMash::Base
         defaults do
           timeout 100
           cache_timeout 9999
         end
       end
 
-      class B < A
+      class ApplyDefaultsB < ApplyDefaultsA
         defaults do
           timeout 50
         end
@@ -62,7 +62,7 @@ describe MonsterMash::Request do
 
     it "should apply the defaults in inheritance order" do
       request = MonsterMash::Request.new(:get)
-      request.apply_defaults(B.defaults)
+      request.apply_defaults(ApplyDefaultsB.defaults)
 
       request.options[:timeout].should == 50
       request.options[:cache_timeout].should == 9999

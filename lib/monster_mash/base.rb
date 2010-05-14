@@ -5,6 +5,7 @@ module MonsterMash
 
   class Base
     @defaults = []
+    @has_defaults = false
 
     attr_accessor :defaults
     attr_accessor :hydra
@@ -32,7 +33,8 @@ module MonsterMash
     end
 
     def self.defaults(&block)
-      if block_given?
+      if block_given? and !@has_defaults
+        @has_defaults = true
         @defaults << block
       else
         @defaults
