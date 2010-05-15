@@ -5,6 +5,9 @@ module MonsterMash
     attr_accessor :options
     attr_accessor :errors
 
+    # Creates a new Request wrapper object.
+    #
+    # @param [Symbol] type of HTTP request - :get, :post, :delete, :put
     def initialize(http_method, *args, &block)
       @handler = nil
       @value = nil
