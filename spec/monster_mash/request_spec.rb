@@ -1,5 +1,19 @@
 require File.dirname(__FILE__) + '/../spec_helper'
 
+class ApplyDefaultsA < MonsterMash::Base
+  defaults do
+    timeout 100
+    cache_timeout 9999
+  end
+end
+
+class ApplyDefaultsB < ApplyDefaultsA
+  defaults do
+    timeout 50
+  end
+end
+
+
 describe MonsterMash::Request do
   describe "#new" do
     it "should evaluate the passed in block in context" do
@@ -45,21 +59,6 @@ describe MonsterMash::Request do
   end
 
   describe "#apply_defaults" do
-    before(:all) do
-      class ApplyDefaultsA < MonsterMash::Base
-        defaults do
-          timeout 100
-          cache_timeout 9999
-        end
-      end
-
-      class ApplyDefaultsB < ApplyDefaultsA
-        defaults do
-          timeout 50
-        end
-      end
-    end
-
     it "should apply the defaults in inheritance order" do
       request = MonsterMash::Request.new(:get)
       request.apply_defaults(ApplyDefaultsB.defaults)

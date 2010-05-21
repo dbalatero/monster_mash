@@ -3,26 +3,26 @@ require File.dirname(__FILE__) + '/../spec_helper'
 class MockApi < MonsterMash::Base
 end
 
+class CustomMockError < StandardError; end
+
+class A < MonsterMash::Base
+  defaults do
+    cache_timeout 9999
+    timeout 500
+  end
+end
+
+class B < A
+end
+
+class C < A
+  defaults do
+    cache_timeout 100
+  end
+end
+
 describe MonsterMash::Base do
   describe "inheriting defaults from superclasses" do
-    before(:all) do
-      class A < MonsterMash::Base
-        defaults do
-          cache_timeout 9999
-          timeout 500
-        end
-      end
-
-      class B < A
-      end
-
-      class C < A
-        defaults do
-          cache_timeout 100
-        end
-      end
-    end
-
     it "should propagate defaults to B" do
       B.defaults.should == A.defaults
       B.defaults.should have(1).thing
@@ -154,8 +154,6 @@ describe MonsterMash::Base do
     describe "error propagation" do
       typhoeus_spec_cache("spec/cache/errors") do |hydra|
         before(:all) do
-          class CustomMockError < StandardError; end
-
           MockApi.build_method(:get, :google_json2) do |search|
             uri 'http://ajax.googleapis.com/ajax/services/search/web'
             params({
