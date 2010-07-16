@@ -93,6 +93,7 @@ module MonsterMash
         if hydra.nil?
           # serial request.
           response = request.run_serial_request
+          check_response_and_raise!(response)
           request.handler.call(response)
         else
           # parallel hydra request.
@@ -100,6 +101,7 @@ module MonsterMash
           typhoeus_request.on_complete do |response|
             result, error = nil, nil
             begin
+              check_response_and_raise!(response)
               result = request.handler.call(response)
             rescue => e
               error = e
