@@ -2,6 +2,7 @@ module MonsterMash
   class HTTPError < StandardError
     attr_accessor :response
     attr_accessor :code
+    attr_accessor :body
   end
 
   class Base
@@ -70,9 +71,10 @@ module MonsterMash
     def self.check_response_and_raise!(response)
       code = response.code.to_i
       if code < 200 or code >= 400
-        error = MonsterMash::HTTPError.new("Got bad HTTP response! code: #{code}")
+        error = MonsterMash::HTTPError.new("Got bad HTTP response! code: #{code}\n\n#{response.body}")
         error.response = response
         error.code = code
+        error.body = response.body
         raise error
       end
     end
