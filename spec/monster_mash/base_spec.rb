@@ -171,24 +171,22 @@ describe MonsterMash::Base do
         end
       end
 
+      use_vcr_cassette 'google/error_propagation', :record => :new_episodes
+
       it "should raise an error in a serial request" do
-        VCR.use_cassette 'google/error_propagation', :record => :new_episodes do
-          lambda {
-            MockApi.google_json2('david balatero')
-          }.should raise_error(CustomMockError)
-        end
+        lambda {
+          MockApi.google_json2('david balatero')
+        }.should raise_error(CustomMockError)
       end
 
       it "should propagate the error to the block in parallel request" do
-        VCR.use_cassette 'google/error_propagation', :record => :new_episodes do
-          api = MockApi.new(@hydra)
-          propagated_error = nil
-          api.google_json2('david balatero') do |urls, error|
-            propagated_error = error
-          end
-          @hydra.run
-          propagated_error.should be_an_instance_of(CustomMockError)
+        api = MockApi.new(@hydra)
+        propagated_error = nil
+        api.google_json2('david balatero') do |urls, error|
+          propagated_error = error
         end
+        @hydra.run
+        propagated_error.should be_an_instance_of(CustomMockError)
       end
     end
 
@@ -211,26 +209,24 @@ describe MonsterMash::Base do
         end
       end
 
+      use_vcr_cassette 'google/valid', :record => :new_episodes
+
       it "should do a serial query correctly" do
-        VCR.use_cassette 'google/valid', :record => :new_episodes do
-          saved_urls = MockApi.google_json('balatero')
-          saved_urls.should have(8).things
-        end
+        saved_urls = MockApi.google_json('balatero')
+        saved_urls.should have(8).things
       end
 
       it "should do a query correctly" do
-        VCR.use_cassette 'google/valid', :record => :new_episodes do
-          saved_urls = nil
-          api = MockApi.new(@hydra)
-          api.google_json('balatero') do |urls, error|
-            if !error
-              saved_urls = urls
-            end
+        saved_urls = nil
+        api = MockApi.new(@hydra)
+        api.google_json('balatero') do |urls, error|
+          if !error
+            saved_urls = urls
           end
-          @hydra.run
-
-          saved_urls.should have(8).things
         end
+        @hydra.run
+
+        saved_urls.should have(8).things
       end
     end
   end
