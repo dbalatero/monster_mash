@@ -1,0 +1,38 @@
+--- 
+- !ruby/struct:VCR::HTTPInteraction 
+  request: !ruby/struct:VCR::Request 
+    method: :get
+    uri: http://ajax.googleapis.com:80/ajax/services/search/web?q=david+balatero&rsz=large&v=1.0
+    body: 
+    headers: 
+      user-agent: 
+      - Typhoeus - http://github.com/pauldix/typhoeus/tree/master
+  response: !ruby/struct:VCR::Response 
+    status: !ruby/struct:VCR::ResponseStatus 
+      code: 200
+      message: OK
+    headers: 
+      x-content-type-options: 
+      - nosniff
+      x-frame-options: 
+      - SAMEORIGIN
+      expires: 
+      - Fri, 01 Jan 1990 00:00:00 GMT
+      x-embedded-status: 
+      - "200"
+      content-type: 
+      - text/javascript; charset=utf-8
+      server: 
+      - GSE
+      date: 
+      - Tue, 09 Nov 2010 04:10:00 GMT
+      x-xss-protection: 
+      - 1; mode=block
+      cache-control: 
+      - no-cache, no-store, max-age=0, must-revalidate
+      pragma: 
+      - no-cache
+      transfer-encoding: 
+      - chunked
+    body: "{\"responseData\": {\"results\":[{\"GsearchResultClass\":\"GwebSearch\",\"unescapedUrl\":\"http://twitter.com/dbalatero\",\"url\":\"http://twitter.com/dbalatero\",\"visibleUrl\":\"twitter.com\",\"cacheUrl\":\"http://www.google.com/search?q\\u003dcache:I2apuxLuvJEJ:twitter.com\",\"title\":\"\\u003cb\\u003eDavid Balatero\\u003c/b\\u003e (dbalatero) on Twitter\",\"titleNoFormatting\":\"David Balatero (dbalatero) on Twitter\",\"content\":\"Rubyist, programmer, musician, entrepreneur, photographer.\"},{\"GsearchResultClass\":\"GwebSearch\",\"unescapedUrl\":\"http://github.com/dbalatero\",\"url\":\"http://github.com/dbalatero\",\"visibleUrl\":\"github.com\",\"cacheUrl\":\"http://www.google.com/search?q\\u003dcache:Hpe7-K1FTgoJ:github.com\",\"title\":\"dbalatero\\u0026#39;s Profile - GitHub\",\"titleNoFormatting\":\"dbalatero\\u0026#39;s Profile - GitHub\",\"content\":\"Mar 2, 2009 \\u003cb\\u003e...\\u003c/b\\u003e dbalatero (\\u003cb\\u003eDavid Balatero\\u003c/b\\u003e). You\\u0026#39;re not logged in! Login \\u0026middot; Pricing \\u0026amp; Signup. Name  : \\u003cb\\u003eDavid Balatero\\u003c/b\\u003e. Email. Website/Blog: http://opidmusic.com \\u003cb\\u003e...\\u003c/b\\u003e\"},{\"GsearchResultClass\":\"GwebSearch\",\"unescapedUrl\":\"http://www.linkedin.com/pub/david-balatero/24/567/424\",\"url\":\"http://www.linkedin.com/pub/david-balatero/24/567/424\",\"visibleUrl\":\"www.linkedin.com\",\"cacheUrl\":\"http://www.google.com/search?q\\u003dcache:BI2jxceHRVIJ:www.linkedin.com\",\"title\":\"\\u003cb\\u003eDavid Balatero\\u003c/b\\u003e - LinkedIn\",\"titleNoFormatting\":\"David Balatero - LinkedIn\",\"content\":\"View \\u003cb\\u003eDavid Balatero\\u0026#39;s\\u003c/b\\u003e professional profile on LinkedIn. LinkedIn is the world\\u0026#39;s   largest business network, helping professionals like \\u003cb\\u003eDavid Balatero\\u003c/b\\u003e discover \\u003cb\\u003e...\\u003c/b\\u003e\"},{\"GsearchResultClass\":\"GwebSearch\",\"unescapedUrl\":\"http://developer.amazonwebservices.com/connect/message.jspa?messageID\\u003d188688\",\"url\":\"http://developer.amazonwebservices.com/connect/message.jspa%3FmessageID%3D188688\",\"visibleUrl\":\"developer.amazonwebservices.com\",\"cacheUrl\":\"http://www.google.com/search?q\\u003dcache:5BDsVmlTBIoJ:developer.amazonwebservices.com\",\"title\":\"\\u003cb\\u003eDavid\\u003c/b\\u003e J. \\u003cb\\u003eBalatero\\u003c/b\\u003e - Amazon Web Services Developer Community : Forums\",\"titleNoFormatting\":\"David J. Balatero - Amazon Web Services Developer Community : Forums\",\"content\":\"Replies: 3 - Pages: 1 - Last Post: Jul 30, 2010 3:11 PM by: \\u003cb\\u003eDavid\\u003c/b\\u003e J. \\u003cb\\u003eBalatero\\u003c/b\\u003e   \\u003cb\\u003e...\\u003c/b\\u003e Posted: Jul 30, 2010 3:08 PM PDT in response to: \\u003cb\\u003eDavid\\u003c/b\\u003e J. \\u003cb\\u003eBalatero\\u003c/b\\u003e \\u003cb\\u003e...\\u003c/b\\u003e\"},{\"GsearchResultClass\":\"GwebSearch\",\"unescapedUrl\":\"http://librelist.com/browser//resque/2010/9/17/resque-on-ec2/\",\"url\":\"http://librelist.com/browser//resque/2010/9/17/resque-on-ec2/\",\"visibleUrl\":\"librelist.com\",\"cacheUrl\":\"http://www.google.com/search?q\\u003dcache:GAY8ZuNlwIEJ:librelist.com\",\"title\":\"Resque on EC2 | Quick Archive Test\",\"titleNoFormatting\":\"Resque on EC2 | Quick Archive Test\",\"content\":\"Sep 17, 2010 \\u003cb\\u003e...\\u003c/b\\u003e Re: [resque] Resque on EC2 by \\u003cb\\u003eDavid Balatero\\u003c/b\\u003e \\u003cb\\u003e...\\u003c/b\\u003e On Fri, Sep 17, 2010 at 12:26   PM, \\u003cb\\u003eDavid Balatero\\u003c/b\\u003e \\u0026lt;dbalatero@gmail.com\\u0026gt;wrote: \\u0026gt; Resque.redis \\u003cb\\u003e...\\u003c/b\\u003e\"},{\"GsearchResultClass\":\"GwebSearch\",\"unescapedUrl\":\"http://librelist.com/browser//resque/2010/6/14/redis-slave-failover-with-resque/\",\"url\":\"http://librelist.com/browser//resque/2010/6/14/redis-slave-failover-with-resque/\",\"visibleUrl\":\"librelist.com\",\"cacheUrl\":\"http://www.google.com/search?q\\u003dcache:MV8Q4gc49oAJ:librelist.com\",\"title\":\"redis slave failover with Resque | Quick Archive Test\",\"titleNoFormatting\":\"redis slave failover with Resque | Quick Archive Test\",\"content\":\"Re: [resque] redis slave failover with Resque by \\u003cb\\u003eDavid Balatero\\u003c/b\\u003e \\u003cb\\u003e...\\u003c/b\\u003e\"},{\"GsearchResultClass\":\"GwebSearch\",\"unescapedUrl\":\"http://www.bassmasta.net/w/wooten_victor/132800.html\",\"url\":\"http://www.bassmasta.net/w/wooten_victor/132800.html\",\"visibleUrl\":\"www.bassmasta.net\",\"cacheUrl\":\"http://www.google.com/search?q\\u003dcache:x-_ddwmFZiUJ:www.bassmasta.net\",\"title\":\"Yinin And Yangin Bass Tab (by Wooten Victor) @ BassMasta.net!\",\"titleNoFormatting\":\"Yinin And Yangin Bass Tab (by Wooten Victor) @ BassMasta.net!\",\"content\":\"Victor Wooten - Yingin\\u0026#39; and Yangin\\u0026#39; Tabbed by \\u003cb\\u003eDavid Balatero\\u003c/b\\u003e [\\u003cb\\u003edavid\\u003c/b\\u003e.\\u003cb\\u003ebalatero\\u003c/b\\u003e@  attbi.com] May 2, 2002 | http://www.davidbalatero.com \\u003cb\\u003e...\\u003c/b\\u003e\"},{\"GsearchResultClass\":\"GwebSearch\",\"unescapedUrl\":\"http://www.azchords.com/w/wootenvictor-tabs-10175/yininandyangin-tabs-125181.html\",\"url\":\"http://www.azchords.com/w/wootenvictor-tabs-10175/yininandyangin-tabs-125181.html\",\"visibleUrl\":\"www.azchords.com\",\"cacheUrl\":\"http://www.google.com/search?q\\u003dcache:R0wt7u76inYJ:www.azchords.com\",\"title\":\"Wooten Victor Bass Tabs for - Yinin And Yangin Tabs, Chords, Lyrics\",\"titleNoFormatting\":\"Wooten Victor Bass Tabs for - Yinin And Yangin Tabs, Chords, Lyrics\",\"content\":\"Tabbed by \\u003cb\\u003eDavid Balatero\\u003c/b\\u003e [\\u003cb\\u003edavid\\u003c/b\\u003e.\\u003cb\\u003ebalatero\\u003c/b\\u003e@attbi.com] May 2, 2002 | http://www.  davidbalatero.com #################################################### \\u003cb\\u003e...\\u003c/b\\u003e\"}],\"cursor\":{\"pages\":[{\"start\":\"0\",\"label\":1},{\"start\":\"8\",\"label\":2},{\"start\":\"16\",\"label\":3},{\"start\":\"24\",\"label\":4},{\"start\":\"32\",\"label\":5},{\"start\":\"40\",\"label\":6},{\"start\":\"48\",\"label\":7},{\"start\":\"56\",\"label\":8}],\"estimatedResultCount\":\"747\",\"currentPageIndex\":0,\"moreResultsUrl\":\"http://www.google.com/search?oe\\u003dutf8\\u0026ie\\u003dutf8\\u0026source\\u003duds\\u0026start\\u003d0\\u0026hl\\u003den\\u0026q\\u003ddavid+balatero\"}}, \"responseDetails\": null, \"responseStatus\": 200}"
+    http_version: "1.1"

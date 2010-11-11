@@ -22,6 +22,10 @@ class C < A
 end
 
 describe MonsterMash::Base do
+  before(:all) do
+    @hydra = Typhoeus::Hydra.new
+  end
+
   describe "inheriting defaults from superclasses" do
     it "should propagate defaults to B" do
       B.defaults.should == A.defaults
@@ -74,7 +78,8 @@ describe MonsterMash::Base do
 
   describe "#check_response_and_raise!" do
     before(:each) do
-      @response = mock('response')
+      @response = mock('response',
+                       :body => 'response body')
     end
 
     it "should raise if a response has a code in the wrong range" do
@@ -119,7 +124,6 @@ describe MonsterMash::Base do
 
   describe "#self.build_method" do
     before(:all) do
-      @hydra = mock('hydra')
       unless MockApi.respond_to?(:my_method)
         MockApi.build_method(:get, :my_method) do
           uri 'http://google.com'
@@ -151,74 +155,79 @@ describe MonsterMash::Base do
       end
     end
 
-    describe "error propagation" do
-      typhoeus_spec_cache("spec/cache/errors") do |hydra|
-        before(:all) do
-          MockApi.build_method(:get, :google_json2) do |search|
-            uri 'http://ajax.googleapis.com/ajax/services/search/web'
-            params({
-              'v' => '1.0',
-              'q' => search,
-              'rsz' => 'large'
-            })
-            cache_timeout 999999
-            handler do |response|
-              raise CustomMockError, "my error"
-            end
+    context "error propagation" do
+      before(:all) do
+        MockApi.build_method(:get, :google_json2) do |search|
+          uri 'http://ajax.googleapis.com/ajax/services/search/web'
+          params({
+            'v' => '1.0',
+            'q' => search,
+            'rsz' => 'large'
+          })
+          cache_timeout 999999
+          handler do |response|
+            raise CustomMockError, "my error"
           end
         end
+      end
 
-        it "should raise an error in a serial request" do
+      it "should raise an error in a serial request" do
+        VCR.use_cassette 'google/error_propagation', :record => :new_episodes do
           lambda {
             MockApi.google_json2('david balatero')
           }.should raise_error(CustomMockError)
         end
+      end
 
-        it "should propagate the error to the block in parallel request" do
-          api = MockApi.new(hydra)
+      it "should propagate the error to the block in parallel request" do
+        VCR.use_cassette 'google/error_propagation', :record => :new_episodes do
+          api = MockApi.new(@hydra)
           propagated_error = nil
           api.google_json2('david balatero') do |urls, error|
             propagated_error = error
           end
+          @hydra.run
           propagated_error.should be_an_instance_of(CustomMockError)
         end
       end
     end
 
     describe "a valid method" do
-      typhoeus_spec_cache("spec/cache/google") do |hydra|
-        before(:all) do
-          MockApi.build_method(:get, :google_json) do |search|
-            uri 'http://ajax.googleapis.com/ajax/services/search/web'
-            params({
-              'v' => '1.0',
-              'q' => search,
-              'rsz' => 'large'
-            })
-            cache_timeout 999999
-            handler do |response|
-              json = JSON.parse(response.body)
-              json['responseData']['results'].map do |result|
-                result['url']
-              end
+      before(:all) do
+        MockApi.build_method(:get, :google_json) do |search|
+          uri 'http://ajax.googleapis.com/ajax/services/search/web'
+          params({
+            'v' => '1.0',
+            'q' => search,
+            'rsz' => 'large'
+          })
+          cache_timeout 999999
+          handler do |response|
+            json = JSON.parse(response.body)
+            json['responseData']['results'].map do |result|
+              result['url']
             end
           end
         end
+      end
 
-        it "should do a serial query correctly" do
+      it "should do a serial query correctly" do
+        VCR.use_cassette 'google/valid', :record => :new_episodes do
           saved_urls = MockApi.google_json('balatero')
           saved_urls.should have(8).things
         end
+      end
 
-        it "should do a query correctly" do
+      it "should do a query correctly" do
+        VCR.use_cassette 'google/valid', :record => :new_episodes do
           saved_urls = nil
-          api = MockApi.new(hydra)
+          api = MockApi.new(@hydra)
           api.google_json('balatero') do |urls, error|
             if !error
               saved_urls = urls
             end
           end
-          hydra.run
+          @hydra.run
 
           saved_urls.should have(8).things
         end
