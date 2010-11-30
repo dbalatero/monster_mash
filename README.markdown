@@ -84,6 +84,34 @@ To make parallel (non-blocking) calls, you need an instance of Typhoeus::Hydra:
     # blocks until all 10 queries complete.
     hydra.run
 
+Calling helper methods from a handler block
+-------------------------------------------
+
+monster_mash will correctly delegate method calls from your handler block to your API class. Example:
+
+    class GoogleJson < MonsterMash::Base
+      VERSION = '1.0'
+
+      # Creates a method called +search+ that takes
+      # a single +query+ parameter.
+      get(:search) do |query|
+        uri "http://ajax.googleapis.com/ajax/services/search/web"
+        params 'v' => VERSION,
+               'q' => query,
+               'rsz' => 'large'
+        handler do |response|
+          json = JSON.parse(response.body)
+
+          # Calls the correct method on GoogleJson.
+          parse_results(json)
+        end
+      end
+
+      def self.parse_results(json)
+        json['responseData']['results']
+      end
+    end
+
 Setting defaults
 ----------------
 
