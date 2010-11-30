@@ -88,6 +88,7 @@ module MonsterMash
       # Create the request with defaults.
       request = MonsterMash::Request.new(http_method)
       request.apply_defaults(defaults)
+      request.caller_klass = self
 
       # Add in user-set values.
       request.execute_dsl(*args, &setup_block)

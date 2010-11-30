@@ -1,6 +1,9 @@
 require File.dirname(__FILE__) + '/../spec_helper'
 
 class MockApi < MonsterMash::Base
+  def self.test_class_method
+    "testvalue"
+  end
 end
 
 class CustomMockError < StandardError; end
@@ -187,6 +190,42 @@ describe MonsterMash::Base do
         end
         @hydra.run
         propagated_error.should be_an_instance_of(CustomMockError)
+      end
+    end
+
+    describe "delegation to the request class" do
+      before(:all) do
+        MockApi.build_method(:get, :google_json_delegation) do |search|
+          uri 'http://ajax.googleapis.com/ajax/services/search/web'
+          params({
+            'v' => '1.0',
+            'q' => search,
+            'rsz' => 'large'
+          })
+          handler do |response|
+            test_class_method
+          end
+        end
+      end
+
+      use_vcr_cassette 'google/delegation', :record => :new_episodes
+
+      it "should allow calling class methods of the request class in serial" do
+        result = MockApi.google_json_delegation('balatero')
+        result.should == 'testvalue'
+      end
+
+      it "should allow calling class methods of the request class in parallel" do
+        saved_result = nil
+        api = MockApi.new(@hydra)
+        api.google_json_delegation('balatero') do |result, error|
+          if !error
+            saved_result = result
+          end
+        end
+        @hydra.run
+
+        saved_result.should == 'testvalue'
       end
     end
 

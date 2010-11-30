@@ -1,0 +1,38 @@
+--- 
+- !ruby/struct:VCR::HTTPInteraction 
+  request: !ruby/struct:VCR::Request 
+    method: :get
+    uri: http://ajax.googleapis.com:80/ajax/services/search/web?q=balatero&rsz=large&v=1.0
+    body: 
+    headers: 
+      user-agent: 
+      - Typhoeus - http://github.com/pauldix/typhoeus/tree/master
+  response: !ruby/struct:VCR::Response 
+    status: !ruby/struct:VCR::ResponseStatus 
+      code: 200
+      message: OK
+    headers: 
+      x-content-type-options: 
+      - nosniff
+      x-frame-options: 
+      - SAMEORIGIN
+      expires: 
+      - Fri, 01 Jan 1990 00:00:00 GMT
+      x-embedded-status: 
+      - "200"
+      content-type: 
+      - text/javascript; charset=utf-8
+      server: 
+      - GSE
+      date: 
+      - Tue, 30 Nov 2010 18:06:41 GMT
+      x-xss-protection: 
+      - 1; mode=block
+      cache-control: 
+      - no-cache, no-store, max-age=0, must-revalidate
+      pragma: 
+      - no-cache
+      transfer-encoding: 
+      - chunked
+    body: "{\"responseData\": {\"results\":[{\"GsearchResultClass\":\"GwebSearch\",\"unescapedUrl\":\"http://www.facebook.com/people/Dennis-Lawrence-Balatero-Sayson/100001316602150\",\"url\":\"http://www.facebook.com/people/Dennis-Lawrence-Balatero-Sayson/100001316602150\",\"visibleUrl\":\"www.facebook.com\",\"cacheUrl\":\"http://www.google.com/search?q\\u003dcache:_WnFjfrSE8QJ:www.facebook.com\",\"title\":\"Dennis Lawrence \\u003cb\\u003eBalatero\\u003c/b\\u003e Sayson | Facebook\",\"titleNoFormatting\":\"Dennis Lawrence Balatero Sayson | Facebook\",\"content\":\"Dennis Lawrence \\u003cb\\u003eBalatero\\u003c/b\\u003e Sayson is on Facebook. Join Facebook to connect with   Dennis Lawrence \\u003cb\\u003eBalatero\\u003c/b\\u003e Sayson and others you may know.\"},{\"GsearchResultClass\":\"GwebSearch\",\"unescapedUrl\":\"http://de-de.facebook.com/people/Jeannette-Balatero-Rohe/100000128981985\",\"url\":\"http://de-de.facebook.com/people/Jeannette-Balatero-Rohe/100000128981985\",\"visibleUrl\":\"de-de.facebook.com\",\"cacheUrl\":\"http://www.google.com/search?q\\u003dcache:gZYOBRtgo-sJ:de-de.facebook.com\",\"title\":\"Jeannette \\u003cb\\u003eBalatero\\u003c/b\\u003e Rohe | Facebook\",\"titleNoFormatting\":\"Jeannette Balatero Rohe | Facebook\",\"content\":\"Jeannette \\u003cb\\u003eBalatero\\u003c/b\\u003e Rohe ist bei Facebook. Tritt Facebook bei, um dich mit \\u003cb\\u003e...\\u003c/b\\u003e\"},{\"GsearchResultClass\":\"GwebSearch\",\"unescapedUrl\":\"http://twitter.com/dbalatero\",\"url\":\"http://twitter.com/dbalatero\",\"visibleUrl\":\"twitter.com\",\"cacheUrl\":\"http://www.google.com/search?q\\u003dcache:I2apuxLuvJEJ:twitter.com\",\"title\":\"David \\u003cb\\u003eBalatero\\u003c/b\\u003e (dbalatero) on Twitter\",\"titleNoFormatting\":\"David Balatero (dbalatero) on Twitter\",\"content\":\"Rubyist, programmer, musician, entrepreneur, photographer.\"},{\"GsearchResultClass\":\"GwebSearch\",\"unescapedUrl\":\"http://www.travelpuertogalera.com/balatero.htm\",\"url\":\"http://www.travelpuertogalera.com/balatero.htm\",\"visibleUrl\":\"www.travelpuertogalera.com\",\"cacheUrl\":\"http://www.google.com/search?q\\u003dcache:AcJwGQZoG8cJ:www.travelpuertogalera.com\",\"title\":\"Puerto Galera/\\u003cb\\u003eBalatero\\u003c/b\\u003e\",\"titleNoFormatting\":\"Puerto Galera/Balatero\",\"content\":\"and other establishments in \\u003cb\\u003eBalatero\\u003c/b\\u003e, Puerto Galera, Oriental Mindoro, the   Philippines \\u003cb\\u003e....\\u003c/b\\u003e Nagura Beach Resort, \\u003cb\\u003eBalatero\\u003c/b\\u003e, Cellular Tel. 0917-6411705 \\u003cb\\u003e...\\u003c/b\\u003e\"},{\"GsearchResultClass\":\"GwebSearch\",\"unescapedUrl\":\"http://biliranisland.com/blogs/?p\\u003d102\",\"url\":\"http://biliranisland.com/blogs/%3Fp%3D102\",\"visibleUrl\":\"biliranisland.com\",\"cacheUrl\":\"http://www.google.com/search?q\\u003dcache:XCWq2N-FTFoJ:biliranisland.com\",\"title\":\"Congratulations to Ms Desiree Brigette \\u003cb\\u003eBalatero\\u003c/b\\u003e\",\"titleNoFormatting\":\"Congratulations to Ms Desiree Brigette Balatero\",\"content\":\"Congratulations to Ms Desiree Brigette \\u003cb\\u003eBalatero\\u003c/b\\u003e , Events and Updates for   Biliranons at your fingertips.\"},{\"GsearchResultClass\":\"GwebSearch\",\"unescapedUrl\":\"http://www.linkedin.com/pub/russell-balatero/18/499/b78\",\"url\":\"http://www.linkedin.com/pub/russell-balatero/18/499/b78\",\"visibleUrl\":\"www.linkedin.com\",\"cacheUrl\":\"http://www.google.com/search?q\\u003dcache:e3c0ZoU476IJ:www.linkedin.com\",\"title\":\"Russell \\u003cb\\u003eBalatero\\u003c/b\\u003e - LinkedIn\",\"titleNoFormatting\":\"Russell Balatero - LinkedIn\",\"content\":\"View Russell \\u003cb\\u003eBalatero\\u0026#39;s\\u003c/b\\u003e professional profile on LinkedIn. LinkedIn is the   world\\u0026#39;s largest business network, helping professionals like Russell \\u003cb\\u003eBalatero\\u003c/b\\u003e   \\u003cb\\u003e...\\u003c/b\\u003e\"},{\"GsearchResultClass\":\"GwebSearch\",\"unescapedUrl\":\"https://github.com/dbalatero\",\"url\":\"https://github.com/dbalatero\",\"visibleUrl\":\"github.com\",\"cacheUrl\":\"http://www.google.com/search?q\\u003dcache:pZHIkd_Xv9QJ:github.com\",\"title\":\"dbalatero\\u0026#39;s Profile - GitHub\",\"titleNoFormatting\":\"dbalatero\\u0026#39;s Profile - GitHub\",\"content\":\"Mar 2, 2009 \\u003cb\\u003e...\\u003c/b\\u003e dbalatero (David \\u003cb\\u003eBalatero\\u003c/b\\u003e). You\\u0026#39;re not logged in! Login \\u0026middot; Pricing \\u0026amp; Signup. Name  : David \\u003cb\\u003eBalatero\\u003c/b\\u003e. Email. Website/Blog: http://opidmusic.com \\u003cb\\u003e...\\u003c/b\\u003e\"},{\"GsearchResultClass\":\"GwebSearch\",\"unescapedUrl\":\"http://suzukiassociation.org/author/b/barbara-balatero/\",\"url\":\"http://suzukiassociation.org/author/b/barbara-balatero/\",\"visibleUrl\":\"suzukiassociation.org\",\"cacheUrl\":\"http://www.google.com/search?q\\u003dcache:e20ZSip7HqkJ:suzukiassociation.org\",\"title\":\"Barbara \\u003cb\\u003eBalatero\\u003c/b\\u003e | Authors | Journal | Suzuki Association of the \\u003cb\\u003e...\\u003c/b\\u003e\",\"titleNoFormatting\":\"Barbara Balatero | Authors | Journal | Suzuki Association of the ...\",\"content\":\"Oct 1, 2007 \\u003cb\\u003e...\\u003c/b\\u003e Barbara \\u003cb\\u003eBalatero\\u003c/b\\u003e graduated from Oberlin Conservatory with a Bachelors Degree in   Cello Performance and a Masters of Music in Teaching where \\u003cb\\u003e...\\u003c/b\\u003e\"}],\"cursor\":{\"pages\":[{\"start\":\"0\",\"label\":1},{\"start\":\"8\",\"label\":2},{\"start\":\"16\",\"label\":3},{\"start\":\"24\",\"label\":4},{\"start\":\"32\",\"label\":5},{\"start\":\"40\",\"label\":6},{\"start\":\"48\",\"label\":7},{\"start\":\"56\",\"label\":8}],\"estimatedResultCount\":\"2190\",\"currentPageIndex\":0,\"moreResultsUrl\":\"http://www.google.com/search?oe\\u003dutf8\\u0026ie\\u003dutf8\\u0026source\\u003duds\\u0026start\\u003d0\\u0026hl\\u003den\\u0026q\\u003dbalatero\"}}, \"responseDetails\": null, \"responseStatus\": 200}"
+    http_version: "1.1"

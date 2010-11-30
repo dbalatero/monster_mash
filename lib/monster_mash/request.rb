@@ -4,6 +4,7 @@ module MonsterMash
   class Request
     attr_accessor :options
     attr_accessor :errors
+    attr_accessor :caller_klass
 
     # Creates a new Request wrapper object.
     #
@@ -14,6 +15,18 @@ module MonsterMash
 
       self.options = { :method => http_method }
       execute_dsl(*args, &block)
+    end
+
+    def method_missing(method, *args, &block)
+      if caller_klass && caller_klass.respond_to?(method)
+        caller_klass.send(method, *args, &block)
+      else
+        super
+      end
+    end
+
+    def respond_to?(method)
+      (caller_klass && caller_klass.respond_to?(method)) || super
     end
 
     def apply_defaults(default_blocks)
