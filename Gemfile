@@ -1,4 +1,3 @@
-# TODO: update gems
 gem 'typhoeus', '>= 0.2.0'
 
 group :test do
