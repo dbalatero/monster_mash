@@ -1,4 +1,6 @@
-gem 'typhoeus', '>= 0.2.0'
+source :rubygems
+
+gem 'typhoeus', '>= 0.2.2'
 
 group :test do
   gem 'rspec', '1.3.1'
