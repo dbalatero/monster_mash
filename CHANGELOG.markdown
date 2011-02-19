@@ -1,3 +1,11 @@
+0.2.2
+-----
+* bumped typhoeus to 0.2.3 to fix nested params
+
+0.2.1
+-----
+* bumped typhoeus to 0.2.2
+
 0.1.3
 -----
 * HTTPErrors now have the response code as a method.
