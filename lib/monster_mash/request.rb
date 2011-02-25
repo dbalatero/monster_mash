@@ -75,7 +75,7 @@ module MonsterMash
 
     # Typhoeus options.
     [:body, :headers, :timeout, :cache_timeout, :params,
-     :user_agent, :follow_location, :max_redirects,
+     :user_agent, :follow_location, :max_redirects, :verbose,
      :proxy, :disable_ssl_peer_verification].each do |method|
       class_eval <<-EOF
         def #{method}(value = nil, &block)
