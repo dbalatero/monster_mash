@@ -1,3 +1,8 @@
+0.2.3
+-----
+* bumped typhoeus to 0.2.4 to fix POST forms
+* added verbose flag option
+
 0.2.2
 -----
 * bumped typhoeus to 0.2.3 to fix nested params
