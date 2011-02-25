@@ -10,7 +10,7 @@ begin
     gem.email = "dbalatero@gmail.com"
     gem.homepage = "http://github.com/dbalatero/monster_mash"
     gem.authors = ["David Balatero"]
-    gem.add_dependency "typhoeus", ">= 0.2.3"
+    gem.add_dependency "typhoeus", ">= 0.2.4"
     gem.add_development_dependency "rspec", "1.3.1"
     gem.add_development_dependency "vcr", ">= 1.3.0"
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
