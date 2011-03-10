@@ -20,3 +20,6 @@ pkg
 
 ## PROJECT::SPECIFIC
 README.markdown.html
+
+## RVM
+.rvmrc
