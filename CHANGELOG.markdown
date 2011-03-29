@@ -1,3 +1,7 @@
+Current master
+----------------------
+* added more Typhoeus options [ezkl]
+
 0.2.3
 -----
 * bumped typhoeus to 0.2.4 to fix POST forms
