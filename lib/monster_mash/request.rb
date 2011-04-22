@@ -74,7 +74,7 @@ module MonsterMash
     end
 
     # Typhoeus options.
-    [:body, :headers, :connect_timeout, :timeout,
+    [:body, :headers, :connect_timeout, :timeout, :params,
     :user_agent, :response, :cache_timeout, :follow_location,
     :max_redirects, :proxy, :proxy_username,:proxy_password,
     :disable_ssl_peer_verification, :ssl_cert, :ssl_cert_type, 
