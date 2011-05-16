@@ -1,6 +1,7 @@
 Current master
 ----------------------
 * added more Typhoeus options [ezkl]
+* Accidentally removed `params`, fixed. [darkel]
 
 0.2.3
 -----
