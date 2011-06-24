@@ -11,7 +11,7 @@ begin
     gem.homepage = "http://github.com/dbalatero/monster_mash"
     gem.authors = ["David Balatero"]
     gem.add_dependency "typhoeus", ">= 0.2.4"
-    gem.add_development_dependency "rspec", "1.3.1"
+    gem.add_development_dependency "rspec", "~> 2.6"
     gem.add_development_dependency "vcr", ">= 1.3.0"
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end
@@ -26,12 +26,11 @@ RSpec::Core::RakeTask.new do |t|
   t.pattern = 'spec/**/*_spec.rb'
 end
 
-task :spec => :check_dependencies
-
 task :default => :spec
 
-require 'rake/rdoctask'
-Rake::RDocTask.new do |rdoc|
+require 'rdoc/task'
+
+RDoc::Task.new do |rdoc|
   version = File.exist?('VERSION') ? File.read('VERSION') : ""
 
   rdoc.rdoc_dir = 'rdoc'

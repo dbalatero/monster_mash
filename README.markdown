@@ -126,6 +126,23 @@ If you have Typhoeus settings you want to happen for every request, you can set 
       # ...
     end
 
+If all of your requests share a common base URI, you can set that in your
+defaults block:
+
+    class GoogleJson < MonsterMash::Base
+      defaults do
+        base_uri "http://google.com"
+      end
+
+      get(:search) do
+        uri "/search" # expands to http://google.com/search
+      end
+
+      post(:authenticate) do
+        uri "https://auth.google.com" # ignores the base_uri
+      end
+    end
+
 As well, if you set `params` or `headers` in the `defaults` block, any `params` or `headers` added later will be `merge`d into the hash.
 
     class GoogleJson < MonsterMash::Base
