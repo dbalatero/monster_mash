@@ -113,6 +113,39 @@ describe MonsterMash::Request do
       @request.uri "http://google.com"
       @request.uri.should == "http://google.com"
     end
+
+    context "when a base uri is set" do
+      before do
+        @request.base_uri "http://google.com"
+      end
+
+      it "joins the two uris" do
+        @request.uri "/test"
+        @request.uri.should eq "http://google.com/test"
+      end
+
+      it "can be overridden" do
+        @request.uri "http://test.local"
+        @request.uri.should eq "http://test.local"
+      end
+
+      context "but no uri is specified" do
+        it "defaults to the base uri" do
+          @request.uri.should eq "http://google.com"
+        end
+      end
+    end
+  end
+
+  describe "#base_uri" do
+    before(:each) do
+      @request = MonsterMash::Request.new(:get)
+    end
+
+    it "should set the base uri, and return it" do
+      @request.base_uri "http://google.com"
+      @request.base_uri.should eq "http://google.com"
+    end
   end
 
   describe "method_missing methods" do
