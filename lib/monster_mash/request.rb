@@ -61,9 +61,17 @@ module MonsterMash
 
     def uri(value = nil)
       if value
-        @uri = value
+        @uri = base_uri ? URI.join(base_uri, value).to_s : value
       end
-      @uri
+
+      @uri || base_uri
+    end
+
+    def base_uri(value = nil)
+      if value
+        @base_uri = value
+      end
+      @base_uri
     end
 
     def handler(&block)
