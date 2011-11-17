@@ -82,13 +82,7 @@ module MonsterMash
     end
 
     # Typhoeus options.
-    [:body, :headers, :connect_timeout, :timeout, :params,
-    :user_agent, :response, :cache_timeout, :follow_location,
-    :max_redirects, :proxy, :proxy_username,:proxy_password,
-    :disable_ssl_peer_verification, :ssl_cert, :ssl_cert_type, 
-    :ssl_key, :ssl_key_type, :ssl_key_password, :ssl_cacert, 
-    :ssl_capath, :verbose, :username, :password, :auth_method, 
-    :user_agent, :proxy_auth_method, :proxy_type].each do |method|
+    Typhoeus::Request.options.each do |method|
       class_eval <<-EOF
         def #{method}(value = nil, &block)
           assign_or_return_option!(:#{method}, value, &block)
