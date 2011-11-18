@@ -4,20 +4,22 @@
 # -*- encoding: utf-8 -*-
 
 Gem::Specification.new do |s|
-  s.name = %q{monster_mash}
-  s.version = "0.2.3"
+  s.name = "monster_mash"
+  s.version = "0.3.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["David Balatero"]
-  s.date = %q{2011-02-24}
-  s.description = %q{Provides a fun HTTP interface on top of Typhoeus!}
-  s.email = %q{dbalatero@gmail.com}
+  s.date = "2011-11-18"
+  s.description = "Provides a fun HTTP interface on top of Typhoeus!"
+  s.email = "dbalatero@gmail.com"
   s.extra_rdoc_files = [
     "LICENSE",
-    "README.markdown"
+    "README.markdown",
+    "README.markdown.html"
   ]
   s.files = [
     ".document",
+    ".rspec",
     "CHANGELOG.markdown",
     "Gemfile",
     "Gemfile.lock",
@@ -35,13 +37,12 @@ Gem::Specification.new do |s|
     "spec/fixtures/vcr_cassettes/google/valid.yml",
     "spec/monster_mash/base_spec.rb",
     "spec/monster_mash/request_spec.rb",
-    "spec/spec.opts",
     "spec/spec_helper.rb"
   ]
-  s.homepage = %q{http://github.com/dbalatero/monster_mash}
+  s.homepage = "http://github.com/dbalatero/monster_mash"
   s.require_paths = ["lib"]
-  s.rubygems_version = %q{1.3.7}
-  s.summary = %q{Provides a fun HTTP interface on top of Typhoeus!}
+  s.rubygems_version = "1.8.10"
+  s.summary = "Provides a fun HTTP interface on top of Typhoeus!"
   s.test_files = [
     "spec/monster_mash/base_spec.rb",
     "spec/monster_mash/request_spec.rb",
@@ -49,24 +50,20 @@ Gem::Specification.new do |s|
   ]
 
   if s.respond_to? :specification_version then
-    current_version = Gem::Specification::CURRENT_SPECIFICATION_VERSION
     s.specification_version = 3
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
-      s.add_runtime_dependency(%q<typhoeus>, [">= 0.2.3"])
-      s.add_runtime_dependency(%q<typhoeus>, [">= 0.2.4"])
-      s.add_development_dependency(%q<rspec>, ["= 1.3.1"])
+      s.add_runtime_dependency(%q<typhoeus>, [">= 0.3.3"])
+      s.add_development_dependency(%q<rspec>, ["~> 2.6"])
       s.add_development_dependency(%q<vcr>, [">= 1.3.0"])
     else
-      s.add_dependency(%q<typhoeus>, [">= 0.2.3"])
-      s.add_dependency(%q<typhoeus>, [">= 0.2.4"])
-      s.add_dependency(%q<rspec>, ["= 1.3.1"])
+      s.add_dependency(%q<typhoeus>, [">= 0.3.3"])
+      s.add_dependency(%q<rspec>, ["~> 2.6"])
       s.add_dependency(%q<vcr>, [">= 1.3.0"])
     end
   else
-    s.add_dependency(%q<typhoeus>, [">= 0.2.3"])
-    s.add_dependency(%q<typhoeus>, [">= 0.2.4"])
-    s.add_dependency(%q<rspec>, ["= 1.3.1"])
+    s.add_dependency(%q<typhoeus>, [">= 0.3.3"])
+    s.add_dependency(%q<rspec>, ["~> 2.6"])
     s.add_dependency(%q<vcr>, [">= 1.3.0"])
   end
 end
