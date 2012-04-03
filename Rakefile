@@ -11,8 +11,8 @@ begin
     gem.homepage = "http://github.com/dbalatero/monster_mash"
     gem.authors = ["David Balatero"]
     gem.add_dependency "typhoeus", ">= 0.3.3"
-    gem.add_development_dependency "rspec", "~> 2.6"
-    gem.add_development_dependency "vcr", ">= 1.3.0"
+    gem.add_development_dependency "rspec", "~> 2.9.0"
+    gem.add_development_dependency "vcr", "~> 2.0.1"
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end
   Jeweler::GemcutterTasks.new
