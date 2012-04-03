@@ -1,38 +1,170 @@
---- 
-- !ruby/struct:VCR::HTTPInteraction 
-  request: !ruby/struct:VCR::Request 
-    method: :get
-    uri: http://ajax.googleapis.com:80/ajax/services/search/web?q=david+balatero&rsz=large&v=1.0
-    body: 
-    headers: 
-      user-agent: 
-      - Typhoeus - http://github.com/pauldix/typhoeus/tree/master
-  response: !ruby/struct:VCR::Response 
-    status: !ruby/struct:VCR::ResponseStatus 
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://ajax.googleapis.com/ajax/services/search/web?q=david+balatero&rsz=large&v=1.0
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers: {}
+  response:
+    status:
       code: 200
-      message: OK
-    headers: 
-      x-content-type-options: 
-      - nosniff
-      x-frame-options: 
-      - SAMEORIGIN
-      expires: 
-      - Fri, 01 Jan 1990 00:00:00 GMT
-      x-embedded-status: 
-      - "200"
-      content-type: 
-      - text/javascript; charset=utf-8
-      server: 
-      - GSE
-      date: 
-      - Tue, 09 Nov 2010 04:10:00 GMT
-      x-xss-protection: 
-      - 1; mode=block
-      cache-control: 
-      - no-cache, no-store, max-age=0, must-revalidate
-      pragma: 
-      - no-cache
-      transfer-encoding: 
-      - chunked
-    body: "{\"responseData\": {\"results\":[{\"GsearchResultClass\":\"GwebSearch\",\"unescapedUrl\":\"http://twitter.com/dbalatero\",\"url\":\"http://twitter.com/dbalatero\",\"visibleUrl\":\"twitter.com\",\"cacheUrl\":\"http://www.google.com/search?q\\u003dcache:I2apuxLuvJEJ:twitter.com\",\"title\":\"\\u003cb\\u003eDavid Balatero\\u003c/b\\u003e (dbalatero) on Twitter\",\"titleNoFormatting\":\"David Balatero (dbalatero) on Twitter\",\"content\":\"Rubyist, programmer, musician, entrepreneur, photographer.\"},{\"GsearchResultClass\":\"GwebSearch\",\"unescapedUrl\":\"http://github.com/dbalatero\",\"url\":\"http://github.com/dbalatero\",\"visibleUrl\":\"github.com\",\"cacheUrl\":\"http://www.google.com/search?q\\u003dcache:Hpe7-K1FTgoJ:github.com\",\"title\":\"dbalatero\\u0026#39;s Profile - GitHub\",\"titleNoFormatting\":\"dbalatero\\u0026#39;s Profile - GitHub\",\"content\":\"Mar 2, 2009 \\u003cb\\u003e...\\u003c/b\\u003e dbalatero (\\u003cb\\u003eDavid Balatero\\u003c/b\\u003e). You\\u0026#39;re not logged in! Login \\u0026middot; Pricing \\u0026amp; Signup. Name  : \\u003cb\\u003eDavid Balatero\\u003c/b\\u003e. Email. Website/Blog: http://opidmusic.com \\u003cb\\u003e...\\u003c/b\\u003e\"},{\"GsearchResultClass\":\"GwebSearch\",\"unescapedUrl\":\"http://www.linkedin.com/pub/david-balatero/24/567/424\",\"url\":\"http://www.linkedin.com/pub/david-balatero/24/567/424\",\"visibleUrl\":\"www.linkedin.com\",\"cacheUrl\":\"http://www.google.com/search?q\\u003dcache:BI2jxceHRVIJ:www.linkedin.com\",\"title\":\"\\u003cb\\u003eDavid Balatero\\u003c/b\\u003e - LinkedIn\",\"titleNoFormatting\":\"David Balatero - LinkedIn\",\"content\":\"View \\u003cb\\u003eDavid Balatero\\u0026#39;s\\u003c/b\\u003e professional profile on LinkedIn. LinkedIn is the world\\u0026#39;s   largest business network, helping professionals like \\u003cb\\u003eDavid Balatero\\u003c/b\\u003e discover \\u003cb\\u003e...\\u003c/b\\u003e\"},{\"GsearchResultClass\":\"GwebSearch\",\"unescapedUrl\":\"http://developer.amazonwebservices.com/connect/message.jspa?messageID\\u003d188688\",\"url\":\"http://developer.amazonwebservices.com/connect/message.jspa%3FmessageID%3D188688\",\"visibleUrl\":\"developer.amazonwebservices.com\",\"cacheUrl\":\"http://www.google.com/search?q\\u003dcache:5BDsVmlTBIoJ:developer.amazonwebservices.com\",\"title\":\"\\u003cb\\u003eDavid\\u003c/b\\u003e J. \\u003cb\\u003eBalatero\\u003c/b\\u003e - Amazon Web Services Developer Community : Forums\",\"titleNoFormatting\":\"David J. Balatero - Amazon Web Services Developer Community : Forums\",\"content\":\"Replies: 3 - Pages: 1 - Last Post: Jul 30, 2010 3:11 PM by: \\u003cb\\u003eDavid\\u003c/b\\u003e J. \\u003cb\\u003eBalatero\\u003c/b\\u003e   \\u003cb\\u003e...\\u003c/b\\u003e Posted: Jul 30, 2010 3:08 PM PDT in response to: \\u003cb\\u003eDavid\\u003c/b\\u003e J. \\u003cb\\u003eBalatero\\u003c/b\\u003e \\u003cb\\u003e...\\u003c/b\\u003e\"},{\"GsearchResultClass\":\"GwebSearch\",\"unescapedUrl\":\"http://librelist.com/browser//resque/2010/9/17/resque-on-ec2/\",\"url\":\"http://librelist.com/browser//resque/2010/9/17/resque-on-ec2/\",\"visibleUrl\":\"librelist.com\",\"cacheUrl\":\"http://www.google.com/search?q\\u003dcache:GAY8ZuNlwIEJ:librelist.com\",\"title\":\"Resque on EC2 | Quick Archive Test\",\"titleNoFormatting\":\"Resque on EC2 | Quick Archive Test\",\"content\":\"Sep 17, 2010 \\u003cb\\u003e...\\u003c/b\\u003e Re: [resque] Resque on EC2 by \\u003cb\\u003eDavid Balatero\\u003c/b\\u003e \\u003cb\\u003e...\\u003c/b\\u003e On Fri, Sep 17, 2010 at 12:26   PM, \\u003cb\\u003eDavid Balatero\\u003c/b\\u003e \\u0026lt;dbalatero@gmail.com\\u0026gt;wrote: \\u0026gt; Resque.redis \\u003cb\\u003e...\\u003c/b\\u003e\"},{\"GsearchResultClass\":\"GwebSearch\",\"unescapedUrl\":\"http://librelist.com/browser//resque/2010/6/14/redis-slave-failover-with-resque/\",\"url\":\"http://librelist.com/browser//resque/2010/6/14/redis-slave-failover-with-resque/\",\"visibleUrl\":\"librelist.com\",\"cacheUrl\":\"http://www.google.com/search?q\\u003dcache:MV8Q4gc49oAJ:librelist.com\",\"title\":\"redis slave failover with Resque | Quick Archive Test\",\"titleNoFormatting\":\"redis slave failover with Resque | Quick Archive Test\",\"content\":\"Re: [resque] redis slave failover with Resque by \\u003cb\\u003eDavid Balatero\\u003c/b\\u003e \\u003cb\\u003e...\\u003c/b\\u003e\"},{\"GsearchResultClass\":\"GwebSearch\",\"unescapedUrl\":\"http://www.bassmasta.net/w/wooten_victor/132800.html\",\"url\":\"http://www.bassmasta.net/w/wooten_victor/132800.html\",\"visibleUrl\":\"www.bassmasta.net\",\"cacheUrl\":\"http://www.google.com/search?q\\u003dcache:x-_ddwmFZiUJ:www.bassmasta.net\",\"title\":\"Yinin And Yangin Bass Tab (by Wooten Victor) @ BassMasta.net!\",\"titleNoFormatting\":\"Yinin And Yangin Bass Tab (by Wooten Victor) @ BassMasta.net!\",\"content\":\"Victor Wooten - Yingin\\u0026#39; and Yangin\\u0026#39; Tabbed by \\u003cb\\u003eDavid Balatero\\u003c/b\\u003e [\\u003cb\\u003edavid\\u003c/b\\u003e.\\u003cb\\u003ebalatero\\u003c/b\\u003e@  attbi.com] May 2, 2002 | http://www.davidbalatero.com \\u003cb\\u003e...\\u003c/b\\u003e\"},{\"GsearchResultClass\":\"GwebSearch\",\"unescapedUrl\":\"http://www.azchords.com/w/wootenvictor-tabs-10175/yininandyangin-tabs-125181.html\",\"url\":\"http://www.azchords.com/w/wootenvictor-tabs-10175/yininandyangin-tabs-125181.html\",\"visibleUrl\":\"www.azchords.com\",\"cacheUrl\":\"http://www.google.com/search?q\\u003dcache:R0wt7u76inYJ:www.azchords.com\",\"title\":\"Wooten Victor Bass Tabs for - Yinin And Yangin Tabs, Chords, Lyrics\",\"titleNoFormatting\":\"Wooten Victor Bass Tabs for - Yinin And Yangin Tabs, Chords, Lyrics\",\"content\":\"Tabbed by \\u003cb\\u003eDavid Balatero\\u003c/b\\u003e [\\u003cb\\u003edavid\\u003c/b\\u003e.\\u003cb\\u003ebalatero\\u003c/b\\u003e@attbi.com] May 2, 2002 | http://www.  davidbalatero.com #################################################### \\u003cb\\u003e...\\u003c/b\\u003e\"}],\"cursor\":{\"pages\":[{\"start\":\"0\",\"label\":1},{\"start\":\"8\",\"label\":2},{\"start\":\"16\",\"label\":3},{\"start\":\"24\",\"label\":4},{\"start\":\"32\",\"label\":5},{\"start\":\"40\",\"label\":6},{\"start\":\"48\",\"label\":7},{\"start\":\"56\",\"label\":8}],\"estimatedResultCount\":\"747\",\"currentPageIndex\":0,\"moreResultsUrl\":\"http://www.google.com/search?oe\\u003dutf8\\u0026ie\\u003dutf8\\u0026source\\u003duds\\u0026start\\u003d0\\u0026hl\\u003den\\u0026q\\u003ddavid+balatero\"}}, \"responseDetails\": null, \"responseStatus\": 200}"
-    http_version: "1.1"
+      message: !binary |-
+        T0s=
+    headers:
+      !binary "Q2FjaGUtQ29udHJvbA==":
+      - !binary |-
+        bm8tY2FjaGUsIG5vLXN0b3JlLCBtYXgtYWdlPTAsIG11c3QtcmV2YWxpZGF0
+        ZQ==
+      !binary "UHJhZ21h":
+      - !binary |-
+        bm8tY2FjaGU=
+      !binary "RXhwaXJlcw==":
+      - !binary |-
+        RnJpLCAwMSBKYW4gMTk5MCAwMDowMDowMCBHTVQ=
+      !binary "RGF0ZQ==":
+      - !binary |-
+        VHVlLCAwMyBBcHIgMjAxMiAyMjoxNTozMCBHTVQ=
+      !binary "Q29udGVudC1UeXBl":
+      - !binary |-
+        dGV4dC9qYXZhc2NyaXB0OyBjaGFyc2V0PXV0Zi04
+      !binary "WC1FbWJlZGRlZC1TdGF0dXM=":
+      - !binary |-
+        MjAw
+      !binary "WC1Db250ZW50LVR5cGUtT3B0aW9ucw==":
+      - !binary |-
+        bm9zbmlmZg==
+      !binary "WC1GcmFtZS1PcHRpb25z":
+      - !binary |-
+        U0FNRU9SSUdJTg==
+      !binary "WC1Yc3MtUHJvdGVjdGlvbg==":
+      - !binary |-
+        MTsgbW9kZT1ibG9jaw==
+      !binary "U2VydmVy":
+      - !binary |-
+        R1NF
+      !binary "VHJhbnNmZXItRW5jb2Rpbmc=":
+      - !binary |-
+        Y2h1bmtlZA==
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        eyJyZXNwb25zZURhdGEiOiB7InJlc3VsdHMiOlt7IkdzZWFyY2hSZXN1bHRD
+        bGFzcyI6Ikd3ZWJTZWFyY2giLCJ1bmVzY2FwZWRVcmwiOiJodHRwczovL2dp
+        dGh1Yi5jb20vZGJhbGF0ZXJvIiwidXJsIjoiaHR0cHM6Ly9naXRodWIuY29t
+        L2RiYWxhdGVybyIsInZpc2libGVVcmwiOiJnaXRodWIuY29tIiwiY2FjaGVV
+        cmwiOiJodHRwOi8vd3d3Lmdvb2dsZS5jb20vc2VhcmNoP3FcdTAwM2RjYWNo
+        ZTpwWkhJa2RfWHY5UUo6Z2l0aHViLmNvbSIsInRpdGxlIjoiZGJhbGF0ZXJv
+        IChcdTAwM2NiXHUwMDNlRGF2aWQgQmFsYXRlcm9cdTAwM2MvYlx1MDAzZSkg
+        wrcgR2l0SHViIiwidGl0bGVOb0Zvcm1hdHRpbmciOiJkYmFsYXRlcm8gKERh
+        dmlkIEJhbGF0ZXJvKSDCtyBHaXRIdWIiLCJjb250ZW50IjoiZGJhbGF0ZXJv
+        IGhhcyA4NCByZXBvcyB3cml0dGVuIGluIFJ1YnksIEphdmFTY3JpcHQsIGFu
+        ZCBDLiBGb2xsb3cgdGhlaXIgY29kZSBvbiAgIEdpdEh1Yi4ifSx7IkdzZWFy
+        Y2hSZXN1bHRDbGFzcyI6Ikd3ZWJTZWFyY2giLCJ1bmVzY2FwZWRVcmwiOiJo
+        dHRwOi8vdHdpdHRlci5jb20vZGJhbGF0ZXJvIiwidXJsIjoiaHR0cDovL3R3
+        aXR0ZXIuY29tL2RiYWxhdGVybyIsInZpc2libGVVcmwiOiJ0d2l0dGVyLmNv
+        bSIsImNhY2hlVXJsIjoiaHR0cDovL3d3dy5nb29nbGUuY29tL3NlYXJjaD9x
+        XHUwMDNkY2FjaGU6STJhcHV4THV2SkVKOnR3aXR0ZXIuY29tIiwidGl0bGUi
+        OiJcdTAwM2NiXHUwMDNlRGF2aWQgQmFsYXRlcm9cdTAwM2MvYlx1MDAzZSAo
+        QGRiYWxhdGVybykgb24gVHdpdHRlciIsInRpdGxlTm9Gb3JtYXR0aW5nIjoi
+        RGF2aWQgQmFsYXRlcm8gKEBkYmFsYXRlcm8pIG9uIFR3aXR0ZXIiLCJjb250
+        ZW50IjoiU2lnbiB1cCBmb3IgVHdpdHRlciB0byBmb2xsb3cgXHUwMDNjYlx1
+        MDAzZURhdmlkIEJhbGF0ZXJvXHUwMDNjL2JcdTAwM2UgKEBkYmFsYXRlcm8p
+        LiBSdWJ5aXN0LCBwcm9ncmFtbWVyLCAgIG11c2ljaWFuLCBlbnRyZXByZW5l
+        dXIsIHBob3RvZ3JhcGhlci4gb3BpZG11c2ljLmNvbS4ifSx7IkdzZWFyY2hS
+        ZXN1bHRDbGFzcyI6Ikd3ZWJTZWFyY2giLCJ1bmVzY2FwZWRVcmwiOiJodHRw
+        Oi8vd3d3LmxpbmtlZGluLmNvbS9wdWIvZGF2aWQtYmFsYXRlcm8vMjQvNTY3
+        LzQyNCIsInVybCI6Imh0dHA6Ly93d3cubGlua2VkaW4uY29tL3B1Yi9kYXZp
+        ZC1iYWxhdGVyby8yNC81NjcvNDI0IiwidmlzaWJsZVVybCI6Ind3dy5saW5r
+        ZWRpbi5jb20iLCJjYWNoZVVybCI6IiIsInRpdGxlIjoiXHUwMDNjYlx1MDAz
+        ZURhdmlkIEJhbGF0ZXJvXHUwMDNjL2JcdTAwM2UgfCBMaW5rZWRJbiIsInRp
+        dGxlTm9Gb3JtYXR0aW5nIjoiRGF2aWQgQmFsYXRlcm8gfCBMaW5rZWRJbiIs
+        ImNvbnRlbnQiOiJWaWV3IFx1MDAzY2JcdTAwM2VEYXZpZCBCYWxhdGVyb1x1
+        MDAyNiMzOTtzXHUwMDNjL2JcdTAwM2UgcHJvZmVzc2lvbmFsIHByb2ZpbGUg
+        b24gTGlua2VkSW4uIExpbmtlZEluIGlzIHRoZSB3b3JsZFx1MDAyNiMzOTtz
+        ICAgbGFyZ2VzdCBidXNpbmVzcyBuZXR3b3JrLCBoZWxwaW5nIHByb2Zlc3Np
+        b25hbHMgbGlrZSBcdTAwM2NiXHUwMDNlRGF2aWQgQmFsYXRlcm9cdTAwM2Mv
+        Ylx1MDAzZSBkaXNjb3ZlciBcdTAwM2NiXHUwMDNlLi4uXHUwMDNjL2JcdTAw
+        M2UifSx7IkdzZWFyY2hSZXN1bHRDbGFzcyI6Ikd3ZWJTZWFyY2giLCJ1bmVz
+        Y2FwZWRVcmwiOiJodHRwOi8vd3d3LmxpbmtlZGluLmNvbS9wdWIvZGlyL0Rh
+        dmlkL0JhbGF0ZXJvIiwidXJsIjoiaHR0cDovL3d3dy5saW5rZWRpbi5jb20v
+        cHViL2Rpci9EYXZpZC9CYWxhdGVybyIsInZpc2libGVVcmwiOiJ3d3cubGlu
+        a2VkaW4uY29tIiwiY2FjaGVVcmwiOiJodHRwOi8vd3d3Lmdvb2dsZS5jb20v
+        c2VhcmNoP3FcdTAwM2RjYWNoZTpBM2xFcE5vR1ZtZ0o6d3d3LmxpbmtlZGlu
+        LmNvbSIsInRpdGxlIjoiXHUwMDNjYlx1MDAzZURhdmlkIEJhbGF0ZXJvXHUw
+        MDNjL2JcdTAwM2UgcHJvZmlsZXMgfCBMaW5rZWRJbiIsInRpdGxlTm9Gb3Jt
+        YXR0aW5nIjoiRGF2aWQgQmFsYXRlcm8gcHJvZmlsZXMgfCBMaW5rZWRJbiIs
+        ImNvbnRlbnQiOiJWaWV3IHRoZSBwcm9maWxlcyBvZiBwcm9mZXNzaW9uYWxz
+        IG5hbWVkIFx1MDAzY2JcdTAwM2VEYXZpZCBCYWxhdGVyb1x1MDAzYy9iXHUw
+        MDNlIG9uIExpbmtlZEluLiBUaGVyZSBhcmUgMiAgIHByb2Zlc3Npb25hbHMg
+        bmFtZWQgXHUwMDNjYlx1MDAzZURhdmlkIEJhbGF0ZXJvXHUwMDNjL2JcdTAw
+        M2UsIHdobyB1c2UgTGlua2VkSW4gdG8gZXhjaGFuZ2UgXHUwMDNjYlx1MDAz
+        ZS4uLlx1MDAzYy9iXHUwMDNlIn0seyJHc2VhcmNoUmVzdWx0Q2xhc3MiOiJH
+        d2ViU2VhcmNoIiwidW5lc2NhcGVkVXJsIjoiaHR0cHM6Ly9wbHVzLmdvb2ds
+        ZS5jb20vMTAxMTc2MDA1Mzg3OTk2MDM3MjYzIiwidXJsIjoiaHR0cHM6Ly9w
+        bHVzLmdvb2dsZS5jb20vMTAxMTc2MDA1Mzg3OTk2MDM3MjYzIiwidmlzaWJs
+        ZVVybCI6InBsdXMuZ29vZ2xlLmNvbSIsImNhY2hlVXJsIjoiaHR0cDovL3d3
+        dy5nb29nbGUuY29tL3NlYXJjaD9xXHUwMDNkY2FjaGU6UHEwd2dHeGtReW9K
+        OnBsdXMuZ29vZ2xlLmNvbSIsInRpdGxlIjoiXHUwMDNjYlx1MDAzZURhdmlk
+        IEJhbGF0ZXJvXHUwMDNjL2JcdTAwM2UgLSBHb29nbGUrIiwidGl0bGVOb0Zv
+        cm1hdHRpbmciOiJEYXZpZCBCYWxhdGVybyAtIEdvb2dsZSsiLCJjb250ZW50
+        IjoiXHUwMDNjYlx1MDAzZURhdmlkIEJhbGF0ZXJvXHUwMDNjL2JcdTAwM2Ug
+        LSBTb2Z0d2FyZSBFbmdpbmVlciwgTXVzaWNpYW4gLSBPcGVyYXRpb24gSUQg
+        LSBUYWJsZSBcdTAwMjZhbXA7IENoYWlycyAtICAgTWVkaWFQaXN0b24gLSBF
+        dnJpIC0gR29vZ2xlIC0gU2VhdHRsZSwgV0EgLSBVbml2ZXJzaXR5IG9mIFdh
+        c2hpbmd0b24uIn0seyJHc2VhcmNoUmVzdWx0Q2xhc3MiOiJHd2ViU2VhcmNo
+        IiwidW5lc2NhcGVkVXJsIjoiaHR0cDovL3d3dy5xdW9yYS5jb20vRGF2aWQt
+        QmFsYXRlcm8iLCJ1cmwiOiJodHRwOi8vd3d3LnF1b3JhLmNvbS9EYXZpZC1C
+        YWxhdGVybyIsInZpc2libGVVcmwiOiJ3d3cucXVvcmEuY29tIiwiY2FjaGVV
+        cmwiOiIiLCJ0aXRsZSI6Ilx1MDAzY2JcdTAwM2VEYXZpZCBCYWxhdGVyb1x1
+        MDAzYy9iXHUwMDNlIC0gUXVvcmEiLCJ0aXRsZU5vRm9ybWF0dGluZyI6IkRh
+        dmlkIEJhbGF0ZXJvIC0gUXVvcmEiLCJjb250ZW50IjoiXHUwMDNjYlx1MDAz
+        ZURhdmlkIEJhbGF0ZXJvXHUwMDNjL2JcdTAwM2UuIEZvbGxvdyBEYXZpZC4g
+        XHUwMDNjYlx1MDAzZURhdmlkIEJhbGF0ZXJvXHUwMDNjL2JcdTAwM2UuIEJs
+        b2NrIERhdmlkLiBSZXBvcnQuIEZvbGxvd2VycyA4IMK3ICAgSmFzb24gQmFy
+        cmV0dCBQcmFkbyDCtyBSYWZlIFdhZGxlaWdoIMK3IENsYXJrIEZyZWRyaWNr
+        c2VuIMK3IFZpcmFsIFNoYWggXHUwMDNjYlx1MDAzZS4uLlx1MDAzYy9iXHUw
+        MDNlIn0seyJHc2VhcmNoUmVzdWx0Q2xhc3MiOiJHd2ViU2VhcmNoIiwidW5l
+        c2NhcGVkVXJsIjoiaHR0cDovL3d3dy5vcGlkbXVzaWMuY29tLyIsInVybCI6
+        Imh0dHA6Ly93d3cub3BpZG11c2ljLmNvbS8iLCJ2aXNpYmxlVXJsIjoid3d3
+        Lm9waWRtdXNpYy5jb20iLCJjYWNoZVVybCI6Imh0dHA6Ly93d3cuZ29vZ2xl
+        LmNvbS9zZWFyY2g/cVx1MDAzZGNhY2hlOmJRUmkybTdtdnlFSjp3d3cub3Bp
+        ZG11c2ljLmNvbSIsInRpdGxlIjoiT3BlcmF0aW9uIElEIOKAlCBiaW9uaWMg
+        c3ludGgtcG9wIHwgU2VhdHRsZSwgV0EiLCJ0aXRsZU5vRm9ybWF0dGluZyI6
+        Ik9wZXJhdGlvbiBJRCDigJQgYmlvbmljIHN5bnRoLXBvcCB8IFNlYXR0bGUs
+        IFdBIiwiY29udGVudCI6IkZlYiAxOSwgMjAxMiBcdTAwM2NiXHUwMDNlLi4u
+        XHUwMDNjL2JcdTAwM2UgQWxzbyB0YWtlIG5vdGUgdGhhdCBEYXZpZCBoYXMg
+        cmVxdWVzdGVkIHRvIGhhdmUg4oCcYXMgbWFueSByaWRpY3Vsb3VzIFx1MDAz
+        Y2JcdTAwM2UuLi5cdTAwM2MvYlx1MDAzZSBPcGVyYXRpb24gICBJRCBpcyBJ
+        dmFuIEFydGVhZ2EsIFx1MDAzY2JcdTAwM2VEYXZpZCBCYWxhdGVyb1x1MDAz
+        Yy9iXHUwMDNlLCBKYXJlZCBCb3Jrb3dza2ksIFJvYiBcdTAwM2NiXHUwMDNl
+        Li4uXHUwMDNjL2JcdTAwM2UifSx7IkdzZWFyY2hSZXN1bHRDbGFzcyI6Ikd3
+        ZWJTZWFyY2giLCJ1bmVzY2FwZWRVcmwiOiJodHRwOi8vd3d3Lm1lZGlhcGlz
+        dG9uLmNvbS9hYm91dCIsInVybCI6Imh0dHA6Ly93d3cubWVkaWFwaXN0b24u
+        Y29tL2Fib3V0IiwidmlzaWJsZVVybCI6Ind3dy5tZWRpYXBpc3Rvbi5jb20i
+        LCJjYWNoZVVybCI6Imh0dHA6Ly93d3cuZ29vZ2xlLmNvbS9zZWFyY2g/cVx1
+        MDAzZGNhY2hlOkNNbWFzNlRxY0dvSjp3d3cubWVkaWFwaXN0b24uY29tIiwi
+        dGl0bGUiOiJNZWRpYVBpc3RvbiB8IEFib3V0IFVzIiwidGl0bGVOb0Zvcm1h
+        dHRpbmciOiJNZWRpYVBpc3RvbiB8IEFib3V0IFVzIiwiY29udGVudCI6Ikdl
+        YXJCdW5kbGVzLmNvbS4gXHUwMDNjYlx1MDAzZURhdmlkIEJhbGF0ZXJvXHUw
+        MDNjL2JcdTAwM2UuIENvLUZvdW5kZXIgXHUwMDI2YW1wOyBMZWFkIFNvZnR3
+        YXJlIEVuZ2luZWVyLiAgIERhdmlkIGlzIGEgY28tZm91bmRlciBhbmQgbGVh
+        ZHMgdGhlIG92ZXJhbGwgc29mdHdhcmUgZGV2ZWxvcG1lbnQgYXQgTWVkaWFQ
+        aXN0b24gICwgXHUwMDNjYlx1MDAzZS4uLlx1MDAzYy9iXHUwMDNlIn1dLCJj
+        dXJzb3IiOnsicmVzdWx0Q291bnQiOiIxLDU0MCIsInBhZ2VzIjpbeyJzdGFy
+        dCI6IjAiLCJsYWJlbCI6MX0seyJzdGFydCI6IjgiLCJsYWJlbCI6Mn0seyJz
+        dGFydCI6IjE2IiwibGFiZWwiOjN9LHsic3RhcnQiOiIyNCIsImxhYmVsIjo0
+        fSx7InN0YXJ0IjoiMzIiLCJsYWJlbCI6NX0seyJzdGFydCI6IjQwIiwibGFi
+        ZWwiOjZ9LHsic3RhcnQiOiI0OCIsImxhYmVsIjo3fSx7InN0YXJ0IjoiNTYi
+        LCJsYWJlbCI6OH1dLCJlc3RpbWF0ZWRSZXN1bHRDb3VudCI6IjE1NDAiLCJj
+        dXJyZW50UGFnZUluZGV4IjowLCJtb3JlUmVzdWx0c1VybCI6Imh0dHA6Ly93
+        d3cuZ29vZ2xlLmNvbS9zZWFyY2g/b2VcdTAwM2R1dGY4XHUwMDI2aWVcdTAw
+        M2R1dGY4XHUwMDI2c291cmNlXHUwMDNkdWRzXHUwMDI2c3RhcnRcdTAwM2Qw
+        XHUwMDI2aGxcdTAwM2Rlblx1MDAyNnFcdTAwM2RkYXZpZCtiYWxhdGVybyIs
+        InNlYXJjaFJlc3VsdFRpbWUiOiIwLjI3In19LCAicmVzcG9uc2VEZXRhaWxz
+        IjogbnVsbCwgInJlc3BvbnNlU3RhdHVzIjogMjAwfQ==
+    http_version: !binary |-
+      MS4x
+  recorded_at: Tue, 03 Apr 2012 22:15:30 GMT
+recorded_with: VCR 2.0.1
