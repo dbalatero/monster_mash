@@ -158,7 +158,7 @@ describe MonsterMash::Base do
       end
     end
 
-    context "error propagation" do
+    context "error propagation", :vcr => { :cassette_name => "google/error_propagation", :record => :new_episodes } do
       before(:all) do
         MockApi.build_method(:get, :google_json2) do |search|
           uri 'http://ajax.googleapis.com/ajax/services/search/web'
@@ -173,8 +173,6 @@ describe MonsterMash::Base do
           end
         end
       end
-
-      use_vcr_cassette 'google/error_propagation', :record => :new_episodes
 
       it "should raise an error in a serial request" do
         lambda {
@@ -193,7 +191,7 @@ describe MonsterMash::Base do
       end
     end
 
-    describe "delegation to the request class" do
+    describe "delegation to the request class", :vcr => { :cassette_name => "google/delegation", :record => :new_episodes } do
       before(:all) do
         MockApi.build_method(:get, :google_json_delegation) do |search|
           uri 'http://ajax.googleapis.com/ajax/services/search/web'
@@ -207,8 +205,6 @@ describe MonsterMash::Base do
           end
         end
       end
-
-      use_vcr_cassette 'google/delegation', :record => :new_episodes
 
       it "should allow calling class methods of the request class in serial" do
         result = MockApi.google_json_delegation('balatero')
@@ -229,7 +225,7 @@ describe MonsterMash::Base do
       end
     end
 
-    describe "a valid method" do
+    describe "a valid method", :vcr => { :cassette_name => "google/valid", :record => :new_episodes } do
       before(:all) do
         MockApi.build_method(:get, :google_json) do |search|
           uri 'http://ajax.googleapis.com/ajax/services/search/web'
@@ -247,8 +243,6 @@ describe MonsterMash::Base do
           end
         end
       end
-
-      use_vcr_cassette 'google/valid', :record => :new_episodes
 
       it "should do a serial query correctly" do
         saved_urls = MockApi.google_json('balatero')
